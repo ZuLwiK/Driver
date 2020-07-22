@@ -29,6 +29,6 @@ build/
 .vscode/
 /target/
 /build/
-### SONARLINT ###
-
+### MVN ###
+.mvn
 
