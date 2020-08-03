@@ -1,18 +1,12 @@
 package pl.zulwik.driver.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
-@Data
 @Entity
-@NoArgsConstructor
+@Table(name = "files")
 public class DBFile {
-
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -23,11 +17,47 @@ public class DBFile {
     private String fileType;
 
     @Lob
-    @Basic(fetch = FetchType.LAZY, optional = false)
-    @Column(nullable = false, columnDefinition = "MEDIUMBLOB")
     private byte[] data;
 
-    public DBFile(String fileName, String contentType, byte[] bytes) {
+    public DBFile() {
+
     }
 
+    public DBFile(String fileName, String fileType, byte[] data) {
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.data = data;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
 }

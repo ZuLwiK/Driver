@@ -1,37 +1,18 @@
 package pl.zulwik.driver.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import pl.zulwik.driver.model.Question;
-import pl.zulwik.driver.repository.QuestionRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
-public class QuestionService implements IQuestionService {
+public interface QuestionService {
 
-    private final QuestionRepository questionRepository;
+    List<Question> findAll();
 
-    @Override
-    public List<Question> findAll() {
-        return questionRepository.findAll();
-    }
+    Optional<Question> findById(Long id);
 
-    @Override
-    public Optional<Question> findById(Long id) {
-        return questionRepository.findById(id);
-    }
+    Question save(Question question);
 
-    @Override
-    public Question save(Question question) {
-        return questionRepository.save(question);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        questionRepository.deleteById(id);
-    }
+    void deleteById(Long id);
 
 }

@@ -1,37 +1,20 @@
 package pl.zulwik.driver.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import pl.zulwik.driver.model.Tag;
-import pl.zulwik.driver.repository.TagRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
-public class TagService implements ITagService{
+public interface TagService {
 
-    private final TagRepository tagRepository;
+    List<Tag> findAll();
 
-    @Override
-    public List<Tag> findAll() {
-        return tagRepository.findAll();
-    }
+    Optional<Tag> findById(Long id);
 
-    @Override
-    public Optional<Tag> findById(Long id) {
-        return tagRepository.findById(id);
-    }
+    Tag save(Tag tag);
 
-    @Override
-    public Tag save(Tag tag) {
-        return tagRepository.save(tag);
-    }
+    void deleteById(Long id);
 
-    @Override
-    public void deleteById(Long id) {
-        tagRepository.deleteById(id);
-    }
+    Tag update(Long id, Tag tag);
 
 }

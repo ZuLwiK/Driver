@@ -1,37 +1,22 @@
 package pl.zulwik.driver.service;
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import pl.zulwik.driver.model.Advice;
-import pl.zulwik.driver.repository.AdviceRepository;
+
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-@RequiredArgsConstructor
-public class AdviceService implements IAdviceService {
+public interface AdviceService {
 
-    private final AdviceRepository adviceRepository;
+    List<Advice> findAll();
 
-    @Override
-    public List<Advice> findAll() {
-        return adviceRepository.findAll();
-    }
+    Optional<Advice> findById(Long id);
 
-    @Override
-    public Optional<Advice> findById(Long id) {
-        return adviceRepository.findById(id);
-    }
+    Advice save(Advice advice);
 
-    @Override
-    public Advice save(Advice advice) {
-        return adviceRepository.save(advice);
-    }
+    void deleteById(Long id);
 
-    @Override
-    public void deleteById(Long id) {
-        adviceRepository.deleteById(id);
-    }
+    Advice update (Long id, Advice advice);
 
 }
+
