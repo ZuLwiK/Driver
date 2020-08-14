@@ -4,7 +4,7 @@ REST API with driving advices and training exercises
 The purpose of this project is to create a website where everybody can become acquainted with many counsels concern safe on the road. 
 
 [IN PROGRESS]
-This website will have many articles invole safe on the road and quizzes, where everybody can check own knowledge.
+This website will have many articles involve safe on the road and quizzes, where everybody can check own knowledge.
 
 ## Steps to Setup
 
